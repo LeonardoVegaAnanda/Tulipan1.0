@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="row titulo">
+    <h1>Detalles del registro de Picking</h1>
+    <h4>Numero de Orden: <span>{{registro?.ordenVenta.docNum}}</span></h4>
+    <h4>Numero de Picking: <span>{{registro?.picking.absEntry}}</span></h4>
+    <h4>Surtidor: <span *ngIf="registro?.ordenVenta.surtidor.nombreSurtidor!=null">{{registro?.ordenVenta.surtidor.nombreSurtidor}}</span></h4>
+    <h4>Verificador: <span *ngIf="registro?.ordenVenta.verificador.nombreVerificador!=null">{{registro?.ordenVenta.verificador.nombreVerificador}}</span></h4>
+    <h4>Estatus: <span>{{registro?.estatus}}</span></h4>
+  </div>
+  <br>
+  <div class="main-timeline">
+    <!--Empieza estatus por surtir-->
+    <div class="timeline">
+      <div class="icon"></div>
+      <div class="date-content">
+        <div class="date-outer">
+          <span class="date">
+            <span class="month">{{registro?.datePorSurtir.substring(5,7)}}</span>
+            <span class="year">{{registro?.datePorSurtir.substring(0,4)}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <h5 class="title">Por Surtir</h5>
+        <p class="description">
+
+          La orden fue puesta en el estatus <b>Por surtir</b><br> en la fecha: {{registro?.datePorSurtir}}
+          a la hora {{registro?.timePorSurtir}}
+          <br><br>
+          <br>
+        </p>
+      </div>
+    </div>
+    <!--Termina estatus por surtir-->
+
+    <!--Empieza estatus inicio de surtido-->
+    <div class="timeline">
+      <div class="icon"></div>
+      <div class="date-content">
+        <div class="date-outer">
+          <span class="date">
+            <span class="month">{{registro?.dateInicioSurtido.substring(5,7)}}</span>
+            <span class="year">{{registro?.dateInicioSurtido.substring(0,4)}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <h5 class="title">Inicio de Surtido</h5>
+        <p class="description">
+
+          La orden fue puesta en el estatus <b>Inicio de Surtido</b><br> en la fecha: {{registro?.dateInicioSurtido}} 
+          a la hora: {{registro?.timeInicioSurtido}}
+          <br><br>
+          <br>
+        </p>
+      </div>
+    </div>
+    <!--Termina estatus inicio de surtido-->
+
+    <!--Empieza estatus termino de surtido-->
+    <div class="timeline">
+      <div class="icon"></div>
+      <div class="date-content">
+        <div class="date-outer">
+          <span class="date">
+            <span class="month">{{registro?.dateTerminoSurtido.substring(5,7)}}</span>
+            <span class="year">{{registro?.dateTerminoSurtido.substring(0,4)}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <h5 class="title">Termino de Surtido</h5>
+        <p class="description">
+
+          La orden fue puesta en el estatus <b>Termino de Surtido</b><br> en la fecha: {{registro?.dateTerminoSurtido}}
+          a la hora {{registro?.timeTerminoSurtido}}
+          <br><br>
+          <br>
+        </p>
+      </div>
+    </div>
+    <!--Termina estatus termino de surtido-->
+
+    <!--Empieza estatus inicio de verificado-->
+    <div class="timeline">
+      <div class="icon"></div>
+      <div class="date-content">
+        <div class="date-outer">
+          <span class="date">
+            <span class="month">{{registro?.dateInicioVerificado.substring(5,7)}}</span>
+            <span class="year">{{registro?.dateInicioVerificado.substring(0,4)}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <h5 class="title">Inicio de Verificado</h5>
+        <p class="description">
+
+          La orden fue puesta en el estatus <b>Inicio de Surtido</b><br> en la fecha: {{registro?.dateInicioVerificado}}
+          a la hora {{registro?.timeInicioVerificado}}
+          <br><br>
+          <br>
+        </p>
+      </div>
+    </div>
+    <!--Termina estatus inicio de verificado-->
+
+    <!--Empieza estatus termino de verificado-->
+    <div class="timeline">
+      <div class="icon"></div>
+      <div class="date-content">
+        <div class="date-outer">
+          <span class="date">
+            <span class="month">{{registro?.dateTerminoVerificado.substring(5,7)}}</span>
+            <span class="year">{{registro?.dateTerminoVerificado.substring(0,4)}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="timeline-content">
+        <h5 class="title">Termino de Verificado</h5>
+        <p class="description">
+
+          La orden fue puesta en el estatus <b>Termino de Verificado</b><br> en la fecha: {{registro?.dateTerminoVerificado}}
+          a la hora {{registro?.timeTerminoVerificado}}
+          <br><br>
+          <br>
+        </p>
+      </div>
+    </div>
+    <!--Termina estatus termino de verificado-->
+  </div>
+</div>

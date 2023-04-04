@@ -1,0 +1,67 @@
+<!--Encabezado principal-->
+<section class="intro">
+  <div class="bg-image h-100" style="background-color: transparent;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <br><br>
+        <!--Titulo-->
+        <h2 style="color: #000;">
+          Lista de Picking
+        </h2>
+        <br>
+        <br>
+        <mat-form-field>
+          <input matInput  [matDatepicker]="picker" placeholder="Escoge la fecha a buscar" [(ngModel)]="fecha">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+         &nbsp; &nbsp;
+        <button style="--clr:#634A97" (click)="obtenerPicking()"><span>Obtener Lista</span><i></i></button>
+        <br><br>
+        <!--Inicio de la Tabla-->
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #000; color: #fff;">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Estatus</th>
+                        <th scope="col">Numero de Picking</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Accion</th>
+                        <th scope="col">Accion</th>
+                      </tr>
+                    </thead>
+                    <tbody style="background-color: transparent;" *ngFor="let picking of listapicking">
+                      <tr>
+                        <td>{{picking.idPicking}}</td>
+                        <td *ngIf="picking.estatus == 1;">Por Surtir</td>
+                        <td *ngIf="picking.estatus == 2;">Inicio Surtido</td>
+                        <td *ngIf="picking.estatus == 3;">Termino Surtido</td>
+                        <td *ngIf="picking.estatus == 4;">Inicio Verificado</td>
+                        <td *ngIf="picking.estatus == 5; ">Termino de Verificado</td>
+                        <td>{{picking.absEntry}}</td>
+                        <td>{{picking.pickDate}}</td>
+                        <td style="color: #000;"><a  class="btn btnPrimary" [routerLink]="'/admin/picking/'+ picking.idPicking">Detalles</a></td>
+                        <td  *ngIf="picking.estatus== 1 "><a  class="btn btnPrimary" [routerLink]="'/admin/assign-s/'+picking.idPicking">Asignar Surtidor</a></td>
+                        <td *ngIf="picking.estatus == 3 "><a  class="btn btnPrimary" [routerLink]="'/admin/assign-v/'+picking.idPicking" >Asignar Verificador</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Fin Tabla-->
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #sinEstatus>
+ Sin Estatus
+</ng-template>

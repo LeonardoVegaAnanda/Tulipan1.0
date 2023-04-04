@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row titulo">
+    <h1>Detalles del registro de Picking</h1>
+    <h4>Numero de Orden: <span>{{ordenVenta?.ordenVenta.docNum}}</span></h4>
+    <h4>Numero de Picking: <span>{{ordenVenta?.absEntry}}</span> </h4>
+    <div class="col-md-6">
+        <select [(ngModel)]="claveSurtidor">
+            <option value="" selected>Selecciona un Surtidor</option>
+            <option *ngFor="let surtidor of surtidoresEstado"  value="{{surtidor.claveSurtidor}}" >{{surtidor.nombreSurtidor}}</option>
+        </select>
+        <br>
+        <br>
+        <button (click)="asignarSurtidor()">Asignar Surtidor</button>
+    </div>
+  </div>
+</div>

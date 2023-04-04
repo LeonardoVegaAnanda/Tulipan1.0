@@ -1,0 +1,51 @@
+<div class="card-container">
+    <p class="hero-image-container">
+      <img class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Aqui deberia estar la imagen del Surtidor" />
+    </p>
+    <main class="main-content">
+      <h1>Nombre del Verificador: &nbsp;{{verificador?.nombreVerificador}}</h1>
+      <div class="flex-row">
+        <div class="coin-base">
+          <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image" />
+          <h2>{{verificador?.claveVerificador}}</h2>
+          </div>
+        <div class="time-left">
+          <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image" />
+          <p>{{verificador?.estadoVerificador}}</p>
+        </div>
+        <div class="time-left">
+          <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image" />
+          <p>{{verificador?.mesaVerificado}}</p>
+        </div>
+      </div>
+    </main>
+    <div class="card-attribute">
+      <p><span><a (click)="openEditarVerificador(editarVerificador)">Editar</a></span></p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <p><span><a (click)="eliminarVerificador(verificador?.idVerificador)">Eliminar</a></span></p>
+    </div>
+  </div>
+  <!--Ventana Modal Buscar Orden-->
+<ng-template #editarVerificador let-modal>
+  <form (ngSubmit)="editarVerificadorClick()">
+    <div class="modal-header fondo-cabecera">
+      <h4 class="modal-title">Buscar Orden</h4>
+      <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body fondo-modal-buscar">
+      <div class="col">
+        <label for="ejemplo">Numero de Orden</label>
+        <input type="text" [(ngModel)]="verificador.nombreVerificador" class="form-control" name="nombreVerificador" placeholder="Nombre">
+        <input type="hidden" [(ngModel)]="verificador.idVerificador" class="form-control" name="idVerificador">
+        <input type="text" [(ngModel)]="verificador.claveVerificador" class="form-control" name="claveSurtidor" placeholder="Clave">
+        <input type="text" [(ngModel)]="verificador.estadoVerificador" class="form-control" name="estadoVerificador" placeholder="Estado">
+        <input type="text" [(ngModel)]="verificador.mesaVerificado" class="form-control" name="mesaVerificado" placeholder="Estado">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn">Crear</button>
+    </div>
+  </form>
+</ng-template>
+<!--Cerrar Ventana Modal Buscar Orden-->

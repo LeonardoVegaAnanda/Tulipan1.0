@@ -1,0 +1,44 @@
+<!--Encabezado principal-->
+<section class="intro">
+  <div class="bg-image h-100" style="background-color: transparent;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <br><br>
+        <!--Titulo-->
+        <h2 style="color: #000;">
+          Lista de Productos
+        </h2>
+        <br>
+        <br>
+        <br><br>
+        <!--Inicio de la Tabla-->
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #000; color: #fff;">
+                      <tr>
+                        <th scope="col">Numero de Producto</th>
+                        <th scope="col">Descripcion</th>
+                      </tr>
+                    </thead>
+                    <tbody style="background-color: transparent;">
+                      <tr *ngFor="let item of items">
+                        <td>{{item.itemCode}}</td>
+                        <td>{{item.itemDescriptcion}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Fin Tabla-->
+      </div>
+    </div>
+  </div>
+</section>

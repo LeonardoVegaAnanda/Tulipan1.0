@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <h1>Picking</h1>
+        <ul>
+          <li class="picking">Numero de Picking
+            <ul>
+              <li class="done">{{picking?.absEntry}}</li>
+            </ul>
+          </li>
+          <li class="picking">Fecha del Picking
+            <ul>
+              <li class="done">{{picking?.pickDate}}</li>
+            </ul>
+          </li>
+          <li class="picking">Numero de Orden
+            <ul>
+              <li class="done">{{picking?.ordenVenta.docNum}}</li>
+            </ul>
+          </li>
+          <li class="picking">Nombre del Cliente
+            <ul>
+              <li class="done">{{picking?.ordenVenta.cardName}}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-4" *ngIf="validacion">
+  <hr>
+  <div class="profile-card-2"><img src="{{imagen}}" class="img img-responsive">
+    <div class="profile-name">{{itemTraido?.itemDescriptcion}}</div>
+    <div class="profile-username">{{itemTraido?.itemCode}}</div>
+    <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+          class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+  </div>
+</div>
+<div class="abajo" *ngIf="validacion">
+  <ul>
+    <li class="done"></li>
+  </ul>
+</div>
+<div class="wrapper abajo">
+  <ol reversed start="20">
+    <li *ngFor="let item of picking?.ordenVenta.productos">
+      <a (click)="obtenerFoto(item.itemCode)">{{item.itemCode}}</a>
+
+    </li>
+  </ol>
+
+
+</div>

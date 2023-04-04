@@ -1,0 +1,99 @@
+<!--Encabezado principal-->
+<section class="intro">
+    <div class="bg-image h-100" style="background-color: transparent;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <br><br>
+          <!--Titulo-->
+          <h2 style="color: #000;">
+            Lista de Verirficadores
+          </h2>
+          <br>
+          <br>
+          <button style="--clr:#634A97" (click)="openBuscarVerificador(buscarVerificador)"><span>Buscar Verificador</span><i></i></button> &nbsp;
+          <button style="--clr:#C81E6E" (click)="openCrearVerificador(crearVerificador)"><span>Crear Verificador</span><i></i></button> &nbsp;
+          <br><br>
+          <!--Inicio de la Tabla-->
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                    style="position: relative; height: 700px">
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #000; color: #fff;">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Clave</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">Mesa</th>
+                          <th scope="col">Accion</th>
+                        </tr>
+                      </thead>
+                      <tbody style="background-color: transparent;">
+                        <tr *ngFor="let verificador of verificadores">
+                          <td>{{verificador.idVerificador}}</td>
+                          <td>{{verificador.nombreVerificador}}</td>
+                          <td>{{verificador.claveVerificador}}</td>
+                          <td>{{verificador.estadoVerificador}}</td>
+                          <td>{{verificador.mesaVerificado}}</td>
+                          <td><a class="btn" [routerLink]="'/admin/verificador/'+verificador.idVerificador">Detalles</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Fin Tabla-->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Ventana Modal Buscar Orden-->
+<ng-template #crearVerificador let-modal>
+  <form (ngSubmit)="crearSurtidorClick()">
+    <div class="modal-header fondo-cabecera">
+      <h4 class="modal-title">Buscar Orden</h4>
+      <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body fondo-modal-buscar">
+      <div class="col">
+        <label for="ejemplo">Numero de Orden</label>
+        <input type="text" [(ngModel)]="verificador.nombreVerificador" class="form-control" name="nombreSurtidor" placeholder="Nombre">
+        <input type="text" [(ngModel)]="verificador.claveVerificador" class="form-control" name="claveSurtidor" placeholder="Clave">
+        <input type="text" [(ngModel)]="verificador.mesaVerificado" class="form-control" name="mesaVerificado" placeholder="Mesa">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn">Crear</button>
+    </div>
+  </form>
+</ng-template>
+<!--Cerrar Ventana Modal Buscar Orden-->
+<!--Ventana Modal Buscar Orden-->
+<ng-template #buscarVerificador let-modal>
+  <form (ngSubmit)="buscarSurtidorClick()">
+    <div class="modal-header fondo-cabecera">
+      <h4 class="modal-title">Buscar Orden</h4>
+      <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body fondo-modal-buscar">
+      <div class="col">
+        <label for="ejemplo">Clave Surtidor</label>
+        <input type="text" [(ngModel)]="claveVerificador" class="form-control" name="claveVerificador" placeholder="Clave Surtidor">
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn">Crear</button>
+    </div>
+  </form>
+</ng-template>
+<!--Cerrar Ventana Modal Buscar Orden-->

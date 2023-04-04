@@ -1,0 +1,6 @@
+.fondo{
+    background-color: black;
+    background:url(/assets/bg-pattern.png),#000;
+    opacity: 80%;
+    color: #fff;
+}
