@@ -16,10 +16,12 @@ import { DashboardLoginComponent } from './login/dashboard-login/dashboard-login
 import { LoginAdminComponent } from './login/login-admin/login-admin.component';
 import { AsignarSurtidorAdminComponent } from './admin/asignar-surtidor-admin/asignar-surtidor-admin.component';
 import { AsignarVerificadorAdminComponent } from './admin/asignar-verificador-admin/asignar-verificador-admin.component';
+import { DashboardUserComponent } from './user/dashboard-user/dashboard-user.component';
 
 const routes: Routes = [
   {path:'',component:DashboardLoginComponent},
   {path:'login',component:LoginAdminComponent,pathMatch:'full'},
+  {path:'usuario',component:DashboardUserComponent},
   {path:'admin',component:DashboardAdminComponent,children:[
     {path:'registro',component:ListaRegistrosAdminComponent},
     {path:'registro/:id',component:DetallesRegistrosAdminComponent},

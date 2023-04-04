@@ -33,6 +33,7 @@ import { HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import { AsignarSurtidorAdminComponent } from './admin/asignar-surtidor-admin/asignar-surtidor-admin.component';
 import { AsignarVerificadorAdminComponent } from './admin/asignar-verificador-admin/asignar-verificador-admin.component';
+import { DashboardUserComponent } from './user/dashboard-user/dashboard-user.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,10 @@ import { AsignarVerificadorAdminComponent } from './admin/asignar-verificador-ad
     DetallesVerificadorAdminComponent,
     AsignarSurtidorAdminComponent,
     AsignarVerificadorAdminComponent,
-
+    NavbarLoginComponent,
+    DashboardLoginComponent,
+    LoginAdminComponent,
+    DashboardUserComponent
   ],
   imports: [
     BrowserModule,
