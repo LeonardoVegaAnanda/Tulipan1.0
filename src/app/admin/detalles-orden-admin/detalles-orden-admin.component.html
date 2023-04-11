@@ -1,50 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <div class="card">
-        <h1>Orden</h1>
-        <ul>
-          <li class="picking">Numero de Entrada
-            <ul>
-              <li class="done">{{orden?.docEntry}}</li>
-            </ul>
-          </li>
-          <li class="picking">Numero de Orden
-            <ul>
-              <li class="done">{{orden?.docNum}}</li>
-            </ul>
-          </li>
-          <li class="picking">Nombre del Cliente
-            <ul>
-              <li class="done">{{orden?.cardName}}</li>
-            </ul>
-          </li>
-        </ul>
+      <h1 class="fuente_h1">Orden</h1>
+      <div id="tv">
+        <h4>Numero de Entrada: <span>{{orden?.docEntry}}</span></h4>
+        <h4>Numero de Orden: <span>{{orden?.docNum}}</span></h4>
+        <h4>Nombre Del Cliente: <span>{{orden?.cardName}}</span></h4>
       </div>
     </div>
   </div>
 </div>
-<div class="col-md-4" *ngIf="validacion">
+<div class="col-md-4 imagen_puesta" *ngIf="validacion">
   <hr>
+  <div class="fontImagen">{{itemTraido?.itemDescriptcion}}</div>
   <div class="profile-card-2"><img src="{{imagen}}" class="img img-responsive">
-    <div class="profile-name">{{itemTraido?.itemDescriptcion}}</div>
-    <div class="profile-username">{{itemTraido?.itemCode}}</div>
-    <div class="profile-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-          class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
   </div>
 </div>
-<div class="abajo" *ngIf="validacion">
-  <ul>
-    <li class="done"></li>
-  </ul>
-</div>
-<div class="wrapper abajo">
+<div id="tv1">
   <ol reversed start="20">
-    <li *ngFor="let item of orden?.productos">
-      <a (click)="obtenerFoto(item.itemCode)">{{item.itemCode}}</a>
-
+    <li (click)="obtenerFoto(item.itemCode)" *ngFor="let item of orden?.productos">
+      <a>{{item.itemCode}}</a>
     </li>
   </ol>
-
-
 </div>
+<div class="buttons">
+  <button class="btnRegresar" [routerLink]="'/admin/orden'">Regresar</button>
+</div>
+

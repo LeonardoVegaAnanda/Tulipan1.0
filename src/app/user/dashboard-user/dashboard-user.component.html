@@ -1,1 +1,79 @@
-<p>dashboard-user works!</p>
+<div>
+  <br><br>
+  <button style="--clr:#3CC3C8; position: relative; left: 10%; top: -20%;" [routerLink]="'/'"><span>Salir</span><i></i></button>
+  <div class="radios">
+    <h1>Seleccione el tipo de Trabajador que es</h1>
+    <label for="surtidor" class="radioFont">Surtidor</label>
+    <input type="radio" name="tipo" id="surtidor" (click)="estado_surtidor()"><br>
+    <label for="verificador" class="radioFont">Verificador</label>
+    <input type="radio" name="tipo"  (click)="estado_verificador()">
+  </div>
+  <div *ngIf="surtidorPositivo">
+    <h4 class="h4Font">Ingrese la clave del surtidor a buscar</h4>
+    <input [(ngModel)]="claveS" type="text" placeholder="Clave del Surtidor" class="text_buscar">
+    <button style="--clr:#634A97" (click)="buscarSurtidor()"><span>Buscar</span><i></i></button>
+    <br><br>
+    <div>
+      <div class="table-wrapper" *ngIf="validacionTS">
+        <table class="fl-table">
+          <thead>
+            <tr style="color: #000;">
+              <th scope="col">#</th>
+              <th scope="col">Estatus</th>
+              <th scope="col">Numero de Picking</th>
+              <th scope="col">Fecha Por Surtir</th>
+              <th scope="col">Fecha Inicio Surtido</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody class="row_cuerpo"  *ngFor="let orden of ordenes">
+            <tr class="tr_font" style="color: #000;" *ngIf="orden.pickingModel.estatus == 1 || orden.pickingModel.estatus== 2">
+              <td>{{orden.idOrdenVenta}}</td>
+              <td *ngIf="orden.pickingModel.estatus == 1">Por Surtir</td>
+              <td *ngIf="orden.pickingModel.estatus == 2">Inicio de Surtido</td>
+              <td>{{orden.pickingModel.absEntry}}</td>
+              <td>{{orden.registroTiempo.datePorSurtir}}</td>
+              <td>{{orden.registroTiempo.dateInicioSurtido}}</td>
+              <td style="color: #000;"><a type="button" class="btnDetalles"
+                  [routerLink]="'/acciones/'+orden.registroTiempo.idRegistro">Acciones</a></td>
+            </tr>
+          <tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="verificadoPositivo">
+    <h4 class="h4Font">Ingrese la clave del verificador a buscar</h4>
+    <input [(ngModel)]="claveS" type="text" placeholder="Clave del Verificado" class="text_buscar">
+    <button style="--clr:#634A97" (click)="buscarVerificador()"><span>Buscar</span><i></i></button>
+    <br><br>
+    <div>
+      <div class="table-wrapper" *ngIf="validacionTS">
+        <table class="fl-table">
+          <thead>
+            <tr style="color: #000;">
+              <th scope="col">#</th>
+              <th scope="col">Estatus</th>
+              <th scope="col">Numero de Picking</th>
+              <th scope="col">Fecha Termino Surtido</th>
+              <th scope="col">Fecha Inicio Verificado</th>
+              <th scope="col">Accion</th>
+            </tr>
+          </thead>
+          <tbody class="row_cuerpo"  *ngFor="let orden of ordenes">
+            <tr class="tr_font" style="color: #000;" *ngIf="orden.pickingModel.estatus == 3 || orden.pickingModel.estatus== 4">
+              <td>{{orden.idOrdenVenta}}</td>
+              <td *ngIf="orden.pickingModel.estatus == 3">Por Surtir</td>
+              <td *ngIf="orden.pickingModel.estatus == 4">Inicio de Surtido</td>
+              <td>{{orden.pickingModel.absEntry}}</td>
+              <td>{{orden.registroTiempo.dateTerminoSurtido}}</td>
+              <td>{{orden.registroTiempo.dateInicioVerificado}}</td>
+              <td style="color: #000;"><a type="button" class="btnDetalles"
+                  [routerLink]="'/acciones/'+orden.registroTiempo.idRegistro">Acciones</a></td>
+            </tr>
+          <tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

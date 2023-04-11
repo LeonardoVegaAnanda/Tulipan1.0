@@ -11,6 +11,8 @@ export class DetallesRegistrosAdminComponent implements OnInit {
 
   registro?: any;
   id:any;
+  surtidor?:any;
+  verificador?:any;
 
   constructor(private andService:AnandaServiceService,private route:ActivatedRoute){}
 
@@ -21,6 +23,21 @@ export class DetallesRegistrosAdminComponent implements OnInit {
       (data) =>{
         this.registro = data;
         console.log(this.registro.ordenVenta);
+        this.andService.buscarSurtidorPorOrden(this.registro.ordenVenta.idOrdenVenta).subscribe(
+          (data)=>{
+            console.log(data);
+            this.surtidor= data;
+          }
+        );
+        this.andService.buscarVerificadorPorOrden(this.registro.ordenVenta.idOrdenVenta).subscribe(
+          (data)=>{
+            console.log(data);
+            this.verificador=data;
+          },
+          (error)=>{
+            console.log(error);
+          }
+        );
       },
       (error) =>{
         console.log(error);

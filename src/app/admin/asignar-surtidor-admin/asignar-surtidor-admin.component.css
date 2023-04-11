@@ -1,4 +1,181 @@
+@font-face{
+  font-family: Source Sans;
+  src: url(/assets/fonts/SourceSansPro-Regular.otf);
+}
+
+@font-face{
+  font-family: Merriwather;
+  src: url(/assets/fonts/MerriweatherSans-Regular.otf);
+}
 .titulo{
     color: #232323;
     text-align: center;
   }
+  #tv {
+    position: relative;
+    width: 750px;
+    height: 430px;
+    background: #FBFBFA;
+    left: 15%;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: #000;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+    font-family: 'Source Sans';
+    font-size: 10px;
+  }
+  .fontH4{
+    font-family: 'Merriwather';
+    font-size: 20px;
+    margin: 20px 10px;
+    padding: 20px;
+  }
+  .fontSpan{
+    font-family: 'Source Sans';
+  }
+  #tv:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+  }
+  .fuente_h1{
+    margin: 20px;
+    font-family: 'Merriwather';
+    width: 350px;
+    position: relative;
+    font-size: 30px;
+    color: #000;
+    left: 30%;
+    --g: 4px;     /* the gap */
+    --b: 6px;    /* border thickness*/
+    --c: #C81E6E; /* the color */
+  
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+    background:
+      var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+      var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b),var(--b) 200%;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .fuente_h1:hover {
+    --_p: 75%;
+    filter: grayscale(0%);
+  }
+  .buttons {
+    display: flex;
+    width: 380px;
+    gap: 10px;
+    --b: 5px;   /* the border thickness */
+    --h: 1.8em; /* the height */
+  }
+  
+  .buttons button {
+    --_c: #3CC3C8;
+    flex: calc(1.25 + var(--_s,0));
+    min-width: 0;
+    font-size: 20px;
+    font-weight: bold;
+    height: var(--h);
+    cursor: pointer;
+    position: relative;
+    color: var(--_c);
+    border: var(--b) solid var(--_c);
+    background: 
+      conic-gradient(at calc(100% - 1.3*var(--b)) 0,var(--_c) 209deg, #0000 211deg) 
+      border-box;
+    clip-path: polygon(0 0,100% 0,calc(100% - 0.577*var(--h)) 100%,0 100%);
+    padding: 10 calc(0.288*var(--h)) 0 0;
+    margin: 0 calc(-0.288*var(--h)) 0 0;
+    box-sizing: border-box;
+    transition: flex .4s;
+    left: 40%;
+  }
+  .buttons button + button {
+    --_c: #C81E6E;
+    flex: calc(.75 + var(--_s,0));
+    background: 
+      conic-gradient(from -90deg at calc(1.3*var(--b)) 100%,var(--_c) 119deg, #0000 121deg) 
+      border-box;
+    clip-path: polygon(calc(0.577*var(--h)) 0,100% 0,100% 100%,0 100%);
+    margin: 0 0 0 calc(-0.288*var(--h));
+    padding: 0 0 0 calc(0.288*var(--h));
+  }
+  
+  
+  .buttons button:focus-visible {
+    outline-offset: calc(-2*var(--b));
+    outline: calc(var(--b)/2) solid #000;
+    background: none;
+    clip-path: none;
+    margin: 10px;
+    padding: 10px;
+  }
+  .buttons button:focus-visible + button {
+    background: none;
+    clip-path: none;
+    margin: 0;
+    padding: 0;
+  }
+  .buttons button:has(+ button:focus-visible) {
+    background: none;
+    clip-path: none;
+    margin: 0;
+    padding: 0;
+  }
+  button:hover,
+  button:active:not(:focus-visible) {
+    --_s: .75;
+    color: #FBFBFA;
+  }
+  button:active {
+    box-shadow: inset 0 0 0 100vmax var(--_c);
+    color: #fff;
+  }
+  
+
+  
+.box {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.box select {
+  background-color: transparent;
+  color: #000;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.box::before {
+  content: "\f13a";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}

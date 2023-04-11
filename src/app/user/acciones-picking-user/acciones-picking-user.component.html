@@ -1,1 +1,21 @@
-<p>acciones-picking-user works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 class="fuente_h1">Acciones generadas</h1>
+      <div id="tv">
+        <h4>Numero de Entrada: <span>{{registro?.docNum}}</span></h4>
+        <h4>Estatus <span>{{registro?.estatus}}</span></h4>
+        <button mat-raised-button class="btnAgregar" (click)="generarTiempoInicioSurtido()"
+          *ngIf="registro?.estatus=='Por Surtir'">Registrar Tiempo Inicio Surtido</button>
+        <button mat-raised-button class="btnAgregar" (click)="generarTiempoTerminoSurtido()"
+          *ngIf="registro?.estatus=='Inicio Surtido'">Registrar Tiempo Termino Surtido</button>
+        <button mat-raised-button class="btnAgregar" (click)="generarTiempoInicioVerificado()"
+          *ngIf="registro?.estatus=='Termino Surtido'">Registrar Tiempo Inicio Verificado</button>
+        <button mat-raised-button class="btnAgregar" (click)="generarTiempoTerminoVerificado()"
+          *ngIf="registro?.estatus=='Inicio Verificado'">Registrar Tiempo Termino Verificado</button>
+      </div>
+    </div>
+    <div class="buttons">
+        <button class="btnRegresar" [routerLink]="'/usuario'">Regresar</button>
+      </div>
+  </div>

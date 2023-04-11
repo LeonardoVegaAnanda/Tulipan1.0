@@ -4,11 +4,28 @@
   }
 }
 
+@font-face{
+  font-family: Source Sans;
+  src: url(/assets/fonts/SourceSansPro-Regular.otf);
+}
+
+@font-face{
+  font-family: Merriwather;
+  src: url(/assets/fonts/MerriweatherSans-Regular.otf);
+}
+  
+
+.fuenteH2{
+  font-family: 'Merriwather','arial';
+  font-size: 25px;
+}
+
 .color-sidebar{
-  background-color: #000;
+  background:url(/assets/bg-pattern.png),#424141;
+  color: #FF5078;
 }
 .color-tr{
-  background-color: #000;
+  background-color: transparent;
   color: #fff;
   border: none;
 }
@@ -23,13 +40,20 @@
   width: 240px;
   z-index: 600;
 }
+
+
 .color-listado {
   background-color: transparent;
+  border: none;
   color: #fff;
+  font-family: 'Source Sans';
+  font-family: 20px;
 }
 .color-listado:hover{
   color: #FF5078;
-  border-bottom: 0.5px #fff solid;
+  border-bottom: 0.5px transparent solid;
+  font-family: 'Source Sans';
+  font-family: 20px;
 }
 .color-salir {
   background-color: #fff;

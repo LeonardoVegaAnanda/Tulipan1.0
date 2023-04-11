@@ -1,3 +1,7 @@
+@font-face{
+    font-family: Garet;
+    src: url(/assets/fonts/Garet-Book.otf);
+  }
 .fondo{
     background-color: black;
     background:url(/assets/bg-pattern.png),#000;

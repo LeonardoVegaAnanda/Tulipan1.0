@@ -1,0 +1,203 @@
+@font-face {
+	font-family: Source Sans;
+	src: url(/assets/fonts/SourceSansPro-Regular.otf);
+  }
+  
+  @font-face {
+	font-family: Merriwather;
+	src: url(/assets/fonts/MerriweatherSans-Regular.otf);
+  }
+  
+  h1 {
+	color: #fff;
+  }
+  
+  .fontImagen{
+	  color: #000;
+	  font-family: 'Merriwather';
+	  font-size: 18px;
+	  text-align: center;
+  }
+  .btnAgregar{
+    color: #fff;
+    font-size: 16px;
+    border: 1px solid #C81E6E;
+    background-color: #FF5078;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 2px;
+  }
+  .btnAgregar:hover{
+    color: #FF5078;
+    font-size: 16px;
+    border: 1px solid #C81E6E;
+    background-color: transparent;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 2px;
+  }
+  
+  #tv {
+	position: relative;
+	width: 450px;
+	height: 250px;
+	background: #FBFBFA;
+	left: 15%;
+	border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+	color: #000;
+	box-shadow: 20px 20px rgba(0, 0, 0, .15);
+	transition: all .4s ease;
+	font-family: 'Source Sans';
+	font-size: 10px;
+  }
+  .btnRegresar{
+	  color: #000;
+	  position: absolute;
+	  bottom: 5%;
+	  left: 50%;
+  
+  }
+  
+  .buttons {
+	  display: flex;
+	  width: 380px;
+	  gap: 10px;
+	  --b: 5px;   /* the border thickness */
+	  --h: 1.8em; /* the height */
+	}
+	
+	.buttons button {
+	  --_c: #3CC3C8;
+	  flex: calc(1.25 + var(--_s,0));
+	  min-width: 0;
+	  font-size: 20px;
+	  font-weight: bold;
+	  width: 200px;
+	  height: var(--h);
+	  cursor: pointer;
+	  position: relative;
+	  color: var(--_c);
+	  position: absolute;
+	  border: var(--b) solid var(--_c);
+	  background: 
+		conic-gradient(at calc(100% - 1.3*var(--b)) 0,var(--_c) 209deg, #0000 211deg) 
+		border-box;
+	  clip-path: polygon(0 0,100% 0,calc(100% - 0.577*var(--h)) 100%,0 100%);
+	  padding: 10 calc(0.288*var(--h)) 0 0;
+	  margin: 0 calc(-0.288*var(--h)) 0 0;
+	  box-sizing: border-box;
+	  transition: flex .4s;
+	  left: 40%;
+	  bottom: 5%;
+	}
+	.buttons button:focus-visible {
+	  outline-offset: calc(-2*var(--b));
+	  outline: calc(var(--b)/2) solid #000;
+	  background: none;
+	  clip-path: none;
+	  margin: 10px;
+	  padding: 10px;
+	}
+  
+	.buttons button:has(+ button:focus-visible) {
+	  background: none;
+	  clip-path: none;
+	  margin: 0;
+	  padding: 0;
+	}
+	button:hover,
+	button:active:not(:focus-visible) {
+	  --_s: .75;
+	  color: #FBFBFA;
+	}
+	button:active {
+	  box-shadow: inset 0 0 0 100vmax var(--_c);
+	  color: #fff;
+	}
+	
+  
+  #tv:hover {
+	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+	box-shadow: 10px 10px rgba(0, 0, 0, .25);
+  }
+  
+  #tv1 {
+	position: relative;
+	width: 850px;
+	height: 250px;
+	background: #FBFBFA;
+	left: 2%;
+	top: 30px;
+	border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+	color: #000;
+	box-shadow: 20px 20px rgba(0, 0, 0, .15);
+	transition: all .4s ease;
+	font-family: 'Source Sans';
+	font-size: 10px;
+  }
+  
+  #tv1:hover {
+	border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+	box-shadow: 10px 10px rgba(0, 0, 0, .25);
+  }
+  
+  .fuente_h1 {
+	margin: 20px;
+	font-family: 'Merriwather';
+	width: 350px;
+    height: 70px;
+	position: relative;
+	text-align: center;
+	font-size: 30px;
+	color: #000;
+	left: 65%;
+	--g: 4px;
+	/* the gap */
+	--b: 6px;
+	/* border thickness*/
+	--c: #C81E6E;
+	/* the color */
+  
+	padding: calc(var(--g) + var(--b));
+	--_c: #0000 0 25%, var(--c) 0 50%;
+	--_g1: repeating-linear-gradient(90deg, var(--_c)) repeat-x;
+	--_g2: repeating-linear-gradient(180deg, var(--_c)) repeat-y;
+	background:
+	  var(--_g1) var(--_p, 25%) 0, var(--_g2) 0 var(--_p, 125%),
+	  var(--_g1) var(--_p, 125%) 100%, var(--_g2) 100% var(--_p, 25%);
+	background-size: 200% var(--b), var(--b) 200%;
+	cursor: pointer;
+	transition: .3s;
+  }
+  
+  .fuente_h1:hover {
+	--_p: 75%;
+	filter: grayscale(0%);
+  }
+  
+  .imagen_puesta {
+	position: absolute;
+	left: 62%;
+	top: 2%;
+	width: 400px;
+	height: 400px;
+  }
+  
+  
+  h1 {
+	font-size: clamp(1.5rem, 1vw + 2rem, 3.5rem);
+  }
+  
+  h2 {
+	font-size: clamp(1.3rem, 1vw + 1.6rem, 3rem);
+	margin: 0;
+  }
+  
+  .divider *+* {
+	margin: 1.5rem 0 0 0;
+  }
+  
+  .divider p {
+	font-size: 1.4rem;
+  }
+  

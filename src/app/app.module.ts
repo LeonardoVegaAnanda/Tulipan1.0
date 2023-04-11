@@ -9,7 +9,6 @@ import { DetallesPickingAdminComponent } from './admin/detalles-picking-admin/de
 import { ListaOrdenesAdminComponent } from './admin/lista-ordenes-admin/lista-ordenes-admin.component';
 import { ListaItemsAdminComponent } from './admin/lista-items-admin/lista-items-admin.component';
 import { DetallesOrdenAdminComponent } from './admin/detalles-orden-admin/detalles-orden-admin.component';
-import { ListaPickingUserComponent } from './user/lista-picking-user/lista-picking-user.component';
 import { DashboardLoginComponent } from './login/dashboard-login/dashboard-login.component';
 import { LoginAdminComponent } from './login/login-admin/login-admin.component';
 import { NavbarLoginComponent } from './login/navbar-login/navbar-login.component';
@@ -34,6 +33,8 @@ import {RouterModule} from '@angular/router';
 import { AsignarSurtidorAdminComponent } from './admin/asignar-surtidor-admin/asignar-surtidor-admin.component';
 import { AsignarVerificadorAdminComponent } from './admin/asignar-verificador-admin/asignar-verificador-admin.component';
 import { DashboardUserComponent } from './user/dashboard-user/dashboard-user.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { authInterceptorProviders } from './services/util/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { DashboardUserComponent } from './user/dashboard-user/dashboard-user.com
     ListaOrdenesAdminComponent,
     ListaItemsAdminComponent,
     DetallesOrdenAdminComponent,
-    ListaPickingUserComponent,
     AccionesPickingUserComponent, 
     SidebarAdminComponent,
     ListaRegistrosAdminComponent,
@@ -58,7 +58,8 @@ import { DashboardUserComponent } from './user/dashboard-user/dashboard-user.com
     NavbarLoginComponent,
     DashboardLoginComponent,
     LoginAdminComponent,
-    DashboardUserComponent
+    DashboardUserComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +75,8 @@ import { DashboardUserComponent } from './user/dashboard-user/dashboard-user.com
     RouterModule
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

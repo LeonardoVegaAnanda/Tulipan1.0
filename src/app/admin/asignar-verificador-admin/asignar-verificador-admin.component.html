@@ -1,17 +1,27 @@
 <div class="container">
-    <div class="row titulo">
-      <h1>Detalles del registro de Picking</h1>
-      <h4>Numero de Orden: <span>{{ordenVenta?.ordenVenta.docNum}}</span></h4>
-      <h4>Numero de Picking: <span>{{ordenVenta?.absEntry}}</span> </h4>
-      <div class="col-md-6">
-          <select [(ngModel)]="claveVerificado">
-              <option value="">Selecciona un Verificador</option>
-              <option *ngFor="let verificador of verificadorEstado"  value="{{verificador.claveVerificador}}" >{{verificador.nombreVerificador}}</option>
-          </select>
-          <br>
-          <br>
-          <button (click)="asignarVerificador()">Asignar Verificador</button>
-      </div>
+  <div class="row titulo">
+    <h1 class="fuente_h1">Detalles del registro de Picking</h1>
+  </div>
+</div>
+<div id="tv">
+  <h4 class="fontH4">Numero de Orden: <span class="fontSpan">{{ordenVenta?.ordenVenta.docNum}}</span></h4>
+  <h4 class="fontH4">Numero de Picking: <span class="fontSpan">{{ordenVenta?.absEntry}}</span> </h4>
+  <div class="col-md-6">
+    <h4 class="fontH4">Seleccionar Trabajador</h4>
+    <div class="box">
+      <select [(ngModel)]="claveVerificado">
+        <option value="" selected>Selecciona un Verificador</option>
+        <option *ngFor="let verificador of verificadorEstado" value="{{verificador.claveVerificador}}">{{verificador.nombreVerificador}}
+        </option>
+      </select>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="buttons">
+      <button (click)="asignarVerificador()">Asignar Verificador</button>
+      <button [routerLink]="'/admin/picking'">Regresar</button>
     </div>
   </div>
-  
+</div>

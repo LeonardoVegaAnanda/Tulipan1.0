@@ -1,11 +1,58 @@
-body{
-  background-color: #f7f7f7;
-  margin-top:20px;
+@font-face{
+  font-family: Source Sans;
+  src: url(/assets/fonts/SourceSansPro-Regular.otf);
+}
+
+@font-face{
+  font-family: Merriwather;
+  src: url(/assets/fonts/MerriweatherSans-Regular.otf);
+}
+
+.btnRegresar{
+  position: relative;
+  right: 50%;
+  bottom: 50%;
 }
 
 .main-timeline {
   position: relative;
-  color:#000
+  color:#424141
+}
+
+.fuente_h1{
+  margin: 20px;
+  font-family: 'Merriwather';
+  width: 350px;
+  position: relative;
+  font-size: 30px;
+  color: #000;
+  left: 30%;
+  --g: 4px;     /* the gap */
+  --b: 6px;    /* border thickness*/
+  --c: #C81E6E; /* the color */
+
+  padding: calc(var(--g) + var(--b));
+  --_c: #0000 0 25%, var(--c) 0 50%;
+  --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+  --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+  background:
+    var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+    var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+  background-size: 200% var(--b),var(--b) 200%;
+  cursor: pointer;
+  transition: .3s;
+}
+.fuente_h1:hover {
+  --_p: 75%;
+  filter: grayscale(0%);
+}
+.fuente_h2{
+  color: #000;
+  margin: 25px;
+  padding: 10px;
+  font-family: 'Merriwather';
+  font-size: 25px;
+  text-align: center;
 }
 
 .main-timeline:before {
@@ -58,7 +105,7 @@ body{
 
 .main-timeline .icon:before {
   background: linear-gradient(to right, #634A97,#FF5078);;
-  border: 2px solid #232323;
+  border: 2px solid #424141;
   left: -3px
 }
 
@@ -79,7 +126,7 @@ body{
   width: 50%;
   float: left;
   margin-top: 22px;
-  position: relative
+  position: relative;
 }
 
 .main-timeline .date-content:before {
@@ -148,6 +195,8 @@ body{
   font-size: 18px;
   font-weight: 700;
   color: #E8E8E8;
+  font-family: 'Merriwather';
+  font-size: 18px;
 }
 
 .titulo{
@@ -160,6 +209,8 @@ body{
   font-size: 30px;
   font-weight: 700;
   color: #c6c6c6;
+  font-family: 'Merriwather';
+  font-size: 25px;
   line-height: 36px
 }
 
@@ -177,7 +228,9 @@ body{
 }
 
 .main-timeline .description {
-  margin-bottom: 0
+  margin-bottom: 0;
+  font-family: 'Merriwather';
+  font-size: 18px;
 }
 
 .main-timeline .timeline:nth-child(2n) .date-content {
@@ -257,4 +310,83 @@ body{
   .main-timeline .title {
       margin-bottom: 10px
   }
+}
+
+#tv {
+  position: relative;
+  width: 750px;
+  height: 250px;
+  background: #FBFBFA;
+  left: 15%;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+  color: #000;
+  box-shadow: 20px 20px rgba(0,0,0,.15);
+  transition: all .4s ease;
+  font-family: 'Source Sans';
+  font-size: 10px;
+}
+#tv:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+@import "https://unpkg.com/open-props";
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+button {
+  font-family: 'Merriwather';
+  font-weight: var(--font-weight-6);
+  font-size: var(--font-size-5);
+  color: var(--gray-8);
+  background: var(--gray-0);
+  border: 0;
+  padding: var(--size-4) var(--size-8);
+  transform: translateY(calc(var(--y, 0) * 1%)) scale(var(--scale));
+  transition: transform 0.1s;
+  position: relative;
+}
+
+button:hover {
+  --y: -10;
+  --scale: 1.1;
+  --border-scale: 1;
+}
+
+button:active {
+  --y: 5%;
+  --scale: 0.9;
+  --border-scale: 0.9, 0.8;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--size-3) * -1);
+  border: var(--size-2) solid var(--gray-0);
+  transform: scale(var(--border-scale, 0));
+  transition: transform 0.125s;
+  
+  --angle-one: 105deg;
+  --angle-two: 290deg;
+  --spread-one: 30deg;
+  --spread-two: 40deg;
+  --start-one: calc(var(--angle-one) - (var(--spread-one) * 0.5));
+  --start-two: calc(var(--angle-two) - (var(--spread-two) * 0.5));
+  --end-one: calc(var(--angle-one) + (var(--spread-one) * 0.5));
+  --end-two: calc(var(--angle-two) + (var(--spread-two) * 0.5));
+  
+  mask: conic-gradient(
+    transparent 0 var(--start-one),
+    white var(--start-one) var(--end-one),
+    transparent var(--end-one) var(--start-two),
+    white var(--start-two) var(--end-two),
+    transparent var(--end-two)
+  );
+  
+  z-index: -1;
 }

@@ -5,15 +5,15 @@
           <img src="assets/ANANDA-blanco.png" alt="Ananda">
           <!--Boton del Menu Administrador-->
           <div class="color-tr">
+            <br>
             <a routerLink="/admin/registros" class="list-group-item list-group-item-action py-2 ripple color-tr"
               aria-current="true">
-              <i class="fas fa-tachometer-alt fa-fw me-3"></i>
-              <h5><span>Menu Admininistrador</span></h5>
+              <h2 class="fuenteH2"><span>Menu Admininistrador</span></h2>
             </a>
           </div>
           <br>
           <!--Lista Registros-->
-          <a routerLink="/admin/registro" class="list-group-item list-group-item-action py-2 ripple color-listado">
+          <a  routerLink="/admin/registro" class="list-group-item list-group-item-action py-2 ripple color-listado">
             Registros
           </a>
           <a routerLink="/admin/picking" class="list-group-item list-group-item-action py-2 ripple color-listado">
@@ -34,6 +34,9 @@
           <br><br><br><br><br><br>
           <br>
           <!--Boton Cerrar Sesion-->
+          <a (click)="cerrarSesion()" class="list-group-item list-group-item-action py-2 ripple color-listado">
+           Cerrar Sesion
+          </a>
         </div>
       </div>
     </nav>

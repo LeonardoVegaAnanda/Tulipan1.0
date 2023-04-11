@@ -1,46 +1,49 @@
 <div class="card-container">
+  <h1 class="fuente_h1">Detalles del Trabajador</h1>
   <p class="hero-image-container">
-    <img class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg" alt="Aqui deberia estar la imagen del Surtidor" />
+    <img class="hero-image" src="/assets/usuarios.jpg" alt="Aqui deberia estar la imagen del Surtidor" />
   </p>
   <main class="main-content">
-    <h1>Nombre del Surtidor: {{surtidor?.nombreSurtidor}}</h1>
-
     <div class="flex-row">
-      <div class="coin-base">
-        <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image" />
-        <p>{{surtidor?.claveSurtidor}}</p>
+      <div class="coin-base fontImg">
+        <img src="/assets/nombre.png" alt="Ethereum" class="small-image"/>{{surtidor?.nombreSurtidor}}
         </div>
-      <div class="time-left">
-        <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image" />
-        <p>{{surtidor?.estadoSurtidor}}</p>
+      <div class="coin-base fontImg">
+        <img src="/assets/contrasena.png" alt="Ethereum" class="small-image fontImg"/>{{surtidor?.claveSurtidor}}
+        </div>
+      <div class="time-left fontImg">
+        <img src="/assets/bateria-llena.png" alt="clock" class="small-image fontImg" />{{surtidor?.estadoSurtidor}}
       </div>
     </div>
   </main>
-  <div class="card-attribute">
-    <p><span><a (click)="openEditarSurtidor(editarSurtidor)">Editar</a></span></p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    <p><span><a (click)="eliminarSurtidor(surtidor?.idSurtidor)">Eliminar</a></span></p>
+  <div class="buttons">
+    <button (click)="openEditarSurtidor(editarSurtidor)">Editar</button>
+    <button (click)="eliminarSurtidor(surtidor?.idSurtidor)">Eliminar</button>
+    <button [routerLink]="'/admin/picking'">Regresar</button>
   </div>
 </div>
 <!--Ventana Modal Buscar Orden-->
 <ng-template #editarSurtidor let-modal>
   <form (ngSubmit)="editarSurtidorClick()">
     <div class="modal-header fondo-cabecera">
-      <h4 class="modal-title">Buscar Orden</h4>
-      <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+      <h4 class="modal-title estiloh4">Buscar Orden</h4>
+      <button class="btn close btnClose" aria-label="close" type="button" (click)="modal.dismiss()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body fondo-modal-buscar">
+    <div class="modal-body fondo-modal-buscar form_modal">
       <div class="col">
-        <label for="ejemplo">Numero de Orden</label>
+        <label for="ejemplo">Nombre Surtidor</label>
         <input type="text" [(ngModel)]="surtidor.nombreSurtidor" class="form-control" name="nombreSurtidor" placeholder="Nombre">
-        <input type="hidden" [(ngModel)]="surtidor.idSurtidor" class="form-control" name="idSurtidor">
+        <input type="hidden" [(ngModel)]="surtidor.idSurtidor" class="form-control" name="idSurtidor"><br>
+        <label for="ejemplo">Clave Surtidor</label>
         <input type="text" [(ngModel)]="surtidor.claveSurtidor" class="form-control" name="claveSurtidor" placeholder="Clave">
+        <label for="ejemplo">Estado</label>
         <input type="text" [(ngModel)]="surtidor.estadoSurtidor" class="form-control" name="estadoSurtidor" placeholder="Estado">
       </div>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn">Crear</button>
+      <button type="submit" class="btnBuscar">Crear</button>
     </div>
   </form>
 </ng-template>

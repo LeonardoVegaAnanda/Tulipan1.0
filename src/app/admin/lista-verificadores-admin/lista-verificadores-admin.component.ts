@@ -29,7 +29,7 @@ export class ListaVerificadoresAdminComponent implements OnInit{
       }
     );
   }
-  buscarSurtidorClick(){
+  buscarVerificadorClick(){
     this.anandaService.obtenerVerificadorByClave(this.claveVerificador).subscribe(
       (data)=>{
         console.log(data);
@@ -40,7 +40,7 @@ export class ListaVerificadoresAdminComponent implements OnInit{
     );
   }
 
-  crearSurtidorClick(){
+  crearVerificadorClick(){
     this.anandaService.crearVerificador(this.verificador).subscribe(
       (data)=>{
         console.log(data);

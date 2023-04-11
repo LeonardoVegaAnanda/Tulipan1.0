@@ -1,51 +1,24 @@
-<!--Encabezado principal-->
-<section class="intro">
-  <div class="bg-image h-100" style="background-color: transparent;">
-    <div class="mask d-flex align-items-center h-100">
-      <div class="container">
-        <br><br>
-        <!--Titulo-->
-        <h2 style="color: #000;">
-          Registros
-        </h2>
-        <br>
-        <br>
-        <br><br>
-        <!--Inicio de la Tabla-->
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body p-0">
-                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
-                  style="position: relative; height: 700px">
-                  <table class="table table-striped mb-0">
-                    <thead style="background-color: #000; color: #fff;">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Estatus</th>
-                        <th scope="col">Numero de Picking</th>
-                        <th scope="col">Numero de Orden</th>
-                        <th scope="col">Accion</th>
-                      </tr>
-                    </thead>
-                    <tbody style="background-color: transparent;" *ngFor="let registro of registros">
-                      <tr>
-                        <td>{{registro.idRegistro}}</td>
-                        <td>{{registro.estatus}}</td>
-                        <td>{{registro.docNum}}</td>
-                        <td>{{registro.picking.absEntry}}</td>
-                        <td><button [routerLink]="'/admin/registro/'+registro.idRegistro">Detalles</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Fin Tabla-->
-      </div>
-    </div>
-  </div>
-</section>
+<h2>Registros de Tiempo</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Estatus</th>
+          <th scope="col">Numero de Picking</th>
+          <th scope="col">Numero de Orden</th>
+          <th scope="col">Accion</th>
+        </tr>
+        </thead>
+        <tbody class="row_cuerpo" *ngFor="let registro of registros">
+          <tr class="tr_font">
+            <td>{{registro.idRegistro}}</td>
+            <td>{{registro.estatus}}</td>
+            <td>{{registro.docNum}}</td>
+            <td>{{registro.picking.absEntry}}</td>
+            <td><button [routerLink]="'/admin/registro/'+registro.idRegistro">Detalles</button></td>
+          </tr>
+        <tbody>
+    </table>
+</div>
 
